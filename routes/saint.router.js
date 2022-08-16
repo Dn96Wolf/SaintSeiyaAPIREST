@@ -1,8 +1,7 @@
 const express = require('express');
 const KnightService = require('../services/caballeros.service');
-// const validatorHandler = require("../middlewares/validator.handler");
-// const { createSaintSchema, updateSaintSchema, getSaintSchema } = "../schemas/saint.schema";
-
+const validatorHandler = require('../middlewares/validator.handler');
+const { createSaintSchema, updateSaintSchema, getSaintSchema } = require('../schemas/saint.schema');
 
 
 const router = express.Router();
@@ -18,6 +17,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id',
+  validatorHandler(getSaintSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -30,6 +30,7 @@ router.get('/:id',
   });
 
 router.post('/',
+  validatorHandler(createSaintSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;

@@ -5,24 +5,24 @@ const id = Joi.string(),
   age = Joi.number().integer().min(0),
   height = Joi.number().integer().min(0),
   constelation = Joi.string().min(3),
-  category = Joi.string().min();
+  category = Joi.string().min(3);
 
 
-// const createSaintSchema = Joi.object({
-//   name: name.required(),
-//   age: age.required(),
-//   height: height.required(),
-//   constelation: constelation.required(),
-//   category: category.required()
-// });
+ const createSaintSchema = Joi.object({
+   name: name.required(),
+   age: age.required(),
+   height: height.required(),
+   constelation: constelation.required(),
+   category: category.required()
+ });
 
-// const updateSaintSchema = Joi.object({
-//   name: name,
-//   age: age,
-//   height: height,
-//   constelation: constelation,
-//   category: category
-// });
+ const updateSaintSchema = Joi.object({
+   name: name,
+   age: age,
+   height: height,
+   constelation: constelation,
+   category: category
+ });
 
 const getSaintSchema = Joi.object({
   id: id.required()
