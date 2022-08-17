@@ -8,7 +8,7 @@ const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/err
 
 app.use(express.json());
 
-const domainUrls = ['http://localhost:8080'];
+const domainUrls = ['http://localhost:8080', 'http://127.0.0.1:5000/index.html'];
 const options = {
   origin: (origin, callback) => {
     if (domainUrls.includes(origin) || !origin) {
